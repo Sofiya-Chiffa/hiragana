@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">hiragana</string>
+    <string name="letter">a</string>
+    <string name="your_answer">...your answer...</string>
+    <string name="check">check</string>
+    <string name="show_your_power">show your power</string>
+</resources>
