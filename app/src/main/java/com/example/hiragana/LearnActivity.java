@@ -58,6 +58,7 @@ public class LearnActivity extends AppCompatActivity {
                     break;
                 }
                 Button button = new Button(this);
+                button.setWidth(100);
                 button.setText(letters.get(k));
                 tableRow.addView(button, j);
                 k += 1;
