@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
@@ -37,9 +38,6 @@ public class LearnActivity extends AppCompatActivity {
         int COLUMNS = 5;
         TableLayout tableLayout = (TableLayout) findViewById(R.id.tableLayout);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        LetterFragment fb = new LetterFragment();
-        ft.add(R.id.place_holder, fb);
-        ft.commit();
         int k = 0;
         for (int i = 0; i < ROWS; i++) {
 
@@ -58,13 +56,19 @@ public class LearnActivity extends AppCompatActivity {
                     break;
                 }
                 Button button = new Button(this);
-                button.setWidth(100);
+                DisplayMetrics dm = new DisplayMetrics();
+                button.setMinWidth(0);
+                getWindow().getWindowManager().getDefaultDisplay().getMetrics(dm);
+                button.setWidth(dm.widthPixels / COLUMNS);
                 button.setText(letters.get(k));
                 tableRow.addView(button, j);
                 k += 1;
                 button.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         String let = String.valueOf(button.getText());
+                        LetterFragment fb = new LetterFragment();
+                        ft.add(R.id.place_holder, fb);
+                        ft.commit();
 
                     }
                 });
