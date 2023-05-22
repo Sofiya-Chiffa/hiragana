@@ -56,7 +56,7 @@
             android:fontFamily="serif-monospace"
             android:text="あ"
             android:textColor="#470736"
-            android:textSize="180sp"
+            android:textSize="180dp"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             android:text="[ a ]"
             android:textColor="#470736"
-            android:textSize="90sp" />
+            android:textSize="80dp" />
     </LinearLayout>
 
 </LinearLayout>

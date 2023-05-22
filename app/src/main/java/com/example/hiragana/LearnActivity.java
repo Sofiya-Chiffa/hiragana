@@ -57,7 +57,7 @@ public class LearnActivity extends AppCompatActivity {
                 }
                 Button button = new Button(this);
                 DisplayMetrics dm = new DisplayMetrics();
-                button.setMinWidth(0);
+                button.setMinimumWidth(0);
                 getWindow().getWindowManager().getDefaultDisplay().getMetrics(dm);
                 button.setWidth(dm.widthPixels / COLUMNS);
                 button.setText(letters.get(k));
@@ -67,6 +67,9 @@ public class LearnActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         String let = String.valueOf(button.getText());
                         LetterFragment fb = new LetterFragment();
+                        Bundle bundle = new Bundle();
+                        bundle.putString("Let", let);
+                        fb.setArguments(bundle);
                         ft.add(R.id.place_holder, fb);
                         ft.commit();
 
