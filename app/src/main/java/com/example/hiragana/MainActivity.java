@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(i);
                         break;
                     default:
-                        return;
+                        break;
                 }
             }
         };

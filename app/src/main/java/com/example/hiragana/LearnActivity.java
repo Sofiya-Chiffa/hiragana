@@ -34,10 +34,27 @@ public class LearnActivity extends AppCompatActivity {
                 "ん"
 
         );
+        List<String> riddings = Arrays.asList(
+                "a", "i", "u", "e", "o",
+                "ka", "ki", "ku", "ke", "ko",
+                "sa", "shi", "su", "se", "so",
+                "ta", "chi", "tu", "te", "to",
+                "na", "ni", "nu", "ne", "no",
+                "ha", "hi", "fu", "he", "ho",
+                "ma", "mi", "mu", "me", "mo",
+                "ya", "yu", "yo",
+                "ra", "ri", "ru", "re", "ro",
+                "wa", "wo",
+                "n"
+
+        );
         int ROWS = 11;
         int COLUMNS = 5;
         TableLayout tableLayout = (TableLayout) findViewById(R.id.tableLayout);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
+        LetterFragment fb = new LetterFragment();
+        ft.add(R.id.place_holder, fb);
+        ft.commit();
         int k = 0;
         for (int i = 0; i < ROWS; i++) {
 
@@ -66,13 +83,12 @@ public class LearnActivity extends AppCompatActivity {
                 button.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         String let = String.valueOf(button.getText());
-                        LetterFragment fb = new LetterFragment();
+                        String rid = riddings.get(letters.indexOf(let));
                         Bundle bundle = new Bundle();
                         bundle.putString("Let", let);
+                        bundle.putString("Rid", rid);
                         fb.setArguments(bundle);
-                        ft.add(R.id.place_holder, fb);
-                        ft.commit();
-
+                        fb.openFr();
                     }
                 });
             }
